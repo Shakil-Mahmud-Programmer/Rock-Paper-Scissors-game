@@ -1,11 +1,12 @@
 import random,colorama
+from colorama import Fore,Back,Style
 colorama.init()
 my_score=machine_score=drow=0
 round=1
-choice=['rock','paper','scissors']
-machine=random.choice(choice)
 print("\033[31m"+"Type exit for escape !")
 while True:
+    choice = ['rock', 'paper', 'scissors']
+    machine = random.choice(choice)
     print("\033[34m"+"Round= ",round)
     round=round+1
     me=input("\033[32m"+"Your choice: ")
@@ -33,7 +34,7 @@ while True:
         print("\033[32m"+'You won')
         my_score = my_score+1
     elif me=='exit':
-        round=round-1
+        round=round-2
         print("\n\n"+"\033[31m"+"<=============>")
         print("\033[34m"+"Total Round= ",round)
         print("\033[34m"+"Drow time= ",drow)
@@ -41,6 +42,8 @@ while True:
         print("\033[34m"+"Machine Score=",machine_score)
         if my_score>machine_score:
             print("\033[32m"+"Congratulation ! You Won the Game !")
+        elif my_score==machine_score:
+            print("\033[36m" + "Its a Draw !")
         else:
             print("\033[31m"+"Sorry ! Machine Won the Game !")
         print("\033[31m" + "<=============>")
